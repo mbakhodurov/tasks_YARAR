@@ -16,7 +16,7 @@ if (isset($_POST['ok'])) {
     $errors="";
 
     if($name==""){
-        $error_name=" Введите имя";
+        $error_name=" Введите имя:";
         
         $errors.=$error_name;
         $errors.="<br>";

@@ -55,7 +55,7 @@ function send($name="ALEX",$phone='89833080505',$gmail="abc@gmail.com"){
         mail($gmail, $subject, $message);
         echo "Message sent";
     }else{
-        echo $errors;
+        echo $enterData['resMes'];
     }
 
 }

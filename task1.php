@@ -44,7 +44,9 @@ function send($name="ALEX",$phone='89833080505',$gmail="abc@gmail.com"){
 
     
     $enterData = vhod_danniy($name,$phone,$gmail);
+}
 
+function send_Email($subject,$message){
     $subject='the subject';
     $message="Имя: $name"."<br>"."Телефон: $phone"."<br>Сообщение $message";
     // $message="Имя: $name"."<br>Телефон: $phone"."<br>Сообщение: $message";
@@ -57,7 +59,6 @@ function send($name="ALEX",$phone='89833080505',$gmail="abc@gmail.com"){
     }else{
         echo $enterData['resMes'];
     }
-
 }
 
 if (isset($_POST['ok'])) {

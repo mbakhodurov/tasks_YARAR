@@ -41,9 +41,8 @@ function vhod_danniy($name,$phone,$gmail){
 
 
 function send($name="ALEX",$phone='89833080505',$gmail="abc@gmail.com"){
-
-    
     $enterData = vhod_danniy($name,$phone,$gmail);
+                send_Email($subject,$message,$gmail,$enter_Data)
 }
 
 function send_Email($subject,$message,$gmail,$enter_Data){

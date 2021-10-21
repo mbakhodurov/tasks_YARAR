@@ -1,5 +1,5 @@
 <?php
-function send($name,$phone,$gmail){
+function send($name="ALEX",$phone='89833080505',$gmail="abc@gmail.com"){
 	$error_name="";
     $error_phone="";
     $error_message="";
@@ -15,7 +15,7 @@ function send($name,$phone,$gmail){
         $error=true;
     }
     
-    if(!preg_match("/^[0-9]{11,11}+$/", $_POST['phone'])){
+    if(!preg_match("/^[0-9]{11,11}+$/", $phone)){
         // Данная проверка принимает только 10 значные номера (9031234567) состоящие только из цифр,
         // без скобок, дефисов и пробелов
         // {10,10} - показывает диапазон допустимой длинны номера, если нужно проверять номер на 11 знаков,
@@ -50,5 +50,5 @@ if (isset($_POST['ok'])) {
     $gmail=$_POST['email'];
     $message=$_POST['message'];
 }
-send($name,$phone,$gmail);
+send();
 ?>

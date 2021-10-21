@@ -41,10 +41,15 @@ function vhod_danniy($name,$phone,$gmail){
 
 
 function send($name="ALEX",$phone='89833080505',$gmail="abc@gmail.com"){
+
+    vhod_danniy($name,$phone,$gmail);
+
+    $enterData = vhod_danniy($name,$phone,$gmail);
+
     $subject='the subject';
     $message="Имя: $name"."<br>"."Телефон: $phone"."<br>Сообщение $message";
     // $message="Имя: $name"."<br>Телефон: $phone"."<br>Сообщение: $message";
-    if (!$error) {
+    if (!$enterData['resErr']) {
         // ini_set('display_errors', 1);
         // ini_set('display_startup_errors', 1);
         // error_reporting(E_ALL);

@@ -1,4 +1,45 @@
 <?php
+
+function vhod_danniy($name,$phone,$gmail){
+
+    $error_name="";
+    $error_phone="";
+    $error_message="";
+    $error=false;
+    $errors="";
+
+    $errs = [];
+
+    if($name==""){
+        $error_name=" Введите имя:";
+        
+        $errors.=$error_name;
+        $errors.="<br>";
+        
+        $error=true;
+    }
+    
+    if(!preg_match("/^[0-9]{11,11}+$/", $phone)){
+        // Данная проверка принимает только 10 значные номера (9031234567) состоящие только из цифр,
+        // без скобок, дефисов и пробелов
+        // {10,10} - показывает диапазон допустимой длинны номера, если нужно проверять номер на 11 знаков,
+        // то нужно изменить на {10,11}
+
+        $error_phone=" Введите телефон";
+
+        $errors.=$error_phone;
+        $errors.="<br>";
+
+        $error=true;
+    }
+
+    $errs["resErr"] = $error;
+    $errs["resMes"] = $errors;
+
+    return $errs;
+}
+
+
 function send($name="ALEX",$phone='89833080505',$gmail="abc@gmail.com"){
 	$error_name="";
     $error_phone="";

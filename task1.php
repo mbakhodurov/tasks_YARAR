@@ -60,7 +60,7 @@ function send_Email($subject,$message,$gmail,$enter_Data){
     }
 }
 
-function set_fasad(){
+function set_fasad($name,$phone,$gmail){
     $enterData = vhod_danniy($name,$phone,$gmail);
                 send_Email($subject,$message,$gmail,$enter_Data);
 }

@@ -41,25 +41,25 @@ function vhod_danniy($name,$phone,$gmail){
 
 
 function send($name="ALEX",$phone='89833080505',$gmail="abc@gmail.com"){
-    set_fasad($name,$phone,$gmail;
+    set_fasad($name,$phone,$gmail);
 }
 
 function send_Email($subject,$message,$gmail,$enter_Data){
     $subject='the subject';
     $message="Имя: $name"."<br>"."Телефон: $phone"."<br>Сообщение $message";
     // $message="Имя: $name"."<br>Телефон: $phone"."<br>Сообщение: $message";
-    if (!$enterData['resErr']) {
+    if (!$enter_Data['resErr']) {
         // ini_set('display_errors', 1);
         // ini_set('display_startup_errors', 1);
         // error_reporting(E_ALL);
         mail($gmail, $subject, $message);
         echo "Message sent";
     }else{
-        echo $enterData['resMes'];
+        echo $enter_Data['resMes'];
     }
 }
 
-function set_fasad($name,$phone,$gmail){
+function set_fasad($name,$phone,$gmail,$enter_Data){
     $enterData = vhod_danniy($name,$phone,$gmail);
                 send_Email($subject,$message,$gmail,$enter_Data);
 }
@@ -70,5 +70,12 @@ if (isset($_POST['ok'])) {
     $gmail=$_POST['email'];
     $message=$_POST['message'];
 }
+
 send();
+
+// $vh=vhod_danniy($name,$phone,$gmail);
+// foreach ($vh as $key) {
+//     echo "$key";
+// }
+// echo $vh;
 ?>

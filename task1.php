@@ -1,15 +1,6 @@
 <?php
-function send($name,$phone,$message){
-	
-}
-
-if (isset($_POST['ok'])) {
-    $name=$_POST['name'];
-	$phone=$_POST['phone'];
-    $gmail=$_POST['email'];
-	$message=$_POST['message'];
-
-    $error_name="";
+function send($name,$phone,$gmail){
+	$error_name="";
     $error_phone="";
     $error_message="";
     $error=false;
@@ -30,13 +21,13 @@ if (isset($_POST['ok'])) {
         // {10,10} - показывает диапазон допустимой длинны номера, если нужно проверять номер на 11 знаков,
         // то нужно изменить на {10,11}
 
-    	$error_phone=" Введите телефон";
+        $error_phone=" Введите телефон";
 
         $errors.=$error_phone;
         $errors.="<br>";
 
-    	$error=true;
-	}
+        $error=true;
+    }
 
     $subject='the subject';
     $message="Имя: $name"."<br>"."Телефон: $phone"."<br>Сообщение $message";
@@ -52,7 +43,12 @@ if (isset($_POST['ok'])) {
     }
 
 }
-    // mail('mbakhodurov@gmail.com', $subject, $message, $headers);
 
-
+if (isset($_POST['ok'])) {
+    $name=$_POST['name'];
+    $phone=$_POST['phone'];
+    $gmail=$_POST['email'];
+    $message=$_POST['message'];
+}
+send($name,$phone,$gmail);
 ?>

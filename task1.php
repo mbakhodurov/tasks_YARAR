@@ -41,7 +41,7 @@ function vhod_danniy($name,$phone,$gmail){
 
 
 function send($name="ALEX",$phone='89833080505',$gmail="abc@gmail.com"){
-    set_fasad($name="ALEX",$phone='89833080505',$gmail="abc@gmail.com");
+    set_fasad($name,$phone,$gmail;
 }
 
 function send_Email($subject,$message,$gmail,$enter_Data){

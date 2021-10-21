@@ -1,5 +1,7 @@
 <?php
-
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
 function vhod_danniy($name,$phone,$gmail){
 
     $error_name="";
@@ -44,38 +46,36 @@ function send($name="ALEX",$phone='89833080505',$gmail="abc@gmail.com"){
     set_fasad($name,$phone,$gmail);
 }
 
-function send_Email($subject,$message,$gmail,$enter_Data){
+function send_Email($gmail,$enter_Data){
+
+    $name=$_POST['name'];
+    $phone=$_POST['phone'];
+    $gmail=$_POST['email'];
+    $message=$_POST['message'];
+
     $subject='the subject';
+
+    $res_mes = "Message didn't send";
+
     $message="Имя: $name"."<br>"."Телефон: $phone"."<br>Сообщение $message";
     // $message="Имя: $name"."<br>Телефон: $phone"."<br>Сообщение: $message";
     if (!$enter_Data['resErr']) {
-        // ini_set('display_errors', 1);
-        // ini_set('display_startup_errors', 1);
-        // error_reporting(E_ALL);
-        mail($gmail, $subject, $message);
-        echo "Message sent";
+
+        if (mail($gmail, $subject, $message)) {
+
+            $res_mes = "Message sent";
+        }
+        echo $res_mes;
     }else{
         echo $enter_Data['resMes'];
     }
 }
 
-function set_fasad($name,$phone,$gmail,$enter_Data){
+function set_fasad($name,$phone,$gmail){
     $enterData = vhod_danniy($name,$phone,$gmail);
-                send_Email($subject,$message,$gmail,$enter_Data);
-}
-
-if (isset($_POST['ok'])) {
-    $name=$_POST['name'];
-    $phone=$_POST['phone'];
-    $gmail=$_POST['email'];
-    $message=$_POST['message'];
+    send_Email($gmail,$enterData);
 }
 
 send();
 
-// $vh=vhod_danniy($name,$phone,$gmail);
-// foreach ($vh as $key) {
-//     echo "$key";
-// }
-// echo $vh;
 ?>
